@@ -8,7 +8,7 @@ W = Jump
 S = Slide
 Left Shift = Block
 '''
-import pygame,sys,time,random,os
+import pygame,random,os
 from pygame.locals import *
 import pygame.image as image
 from win32api import GetSystemMetrics
@@ -251,9 +251,9 @@ def displayUpdate():
     screen.fill(BLUE)
 
     for projectile in playerProjectiles:
-            projectile.draw(screen,'RIGHT',0,0)
-            if SHOW_HITBOX:
-                pygame.draw.rect(screen,RED,projectile.hitbox,2)
+         projectile.draw(screen,'RIGHT',0,0)
+         if SHOW_HITBOX:
+         pygame.draw.rect(screen,RED,projectile.hitbox,2)
 
     for projectile in enemyProjectiles:
 
