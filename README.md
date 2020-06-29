@@ -1,6 +1,9 @@
 # Shinobi-Dash
 A basic endless runner game made with the pygame library in python
 
+# Prerequisites
+Pygame must be installed on your computer and all files must be in the same directory
+
 # Objectives
 Run as long as you can! Shoot enemies and block incoming projectiles. Stay more to the right of the screen for more score
 
