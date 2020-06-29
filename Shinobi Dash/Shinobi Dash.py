@@ -15,7 +15,7 @@ from win32api import GetSystemMetrics
 
 os.environ['SDL_VIDEO_CENTERED'] = '1' #Centers window on screen
 pygame.init()
-pygame.mixer.music.load(os.path.join("Shinobi Dash Files", "Shinobi Dash Theme.ogg"))
+pygame.mixer.music.load(os.path.join("Shinobi Dash Files","Sounds", "Shinobi Dash Theme.ogg"))
 
 DISPLAY_WIDTH = GetSystemMetrics(0)
 DISPLAY_HEIGHT = GetSystemMetrics(1)
@@ -41,11 +41,11 @@ pygame.display.set_caption("Shinobi Dash")
 
 
 
-idleList = [image.load(os.path.join('Shinobi Dash Files', 'p' +str(x) + '.png')) for x in [1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4]*2]
-runningList = [image.load(os.path.join('Shinobi Dash Files', 'R' +str(x) + '.png')) for x in [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8]*2]
-enemyRunningList = [image.load(os.path.join('Shinobi Dash Files', 'E' +str(x) + '.png')) for x in [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8]*2]
+idleList = [image.load(os.path.join('Shinobi Dash Files', 'Player Sprites','p' +str(x) + '.png')) for x in [1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4]*2]
+runningList = [image.load(os.path.join('Shinobi Dash Files','Player Sprites', 'R' +str(x) + '.png')) for x in [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8]*2]
+enemyRunningList = [image.load(os.path.join('Shinobi Dash Files','Enemy Sprites', 'E' +str(x) + '.png')) for x in [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8]*2]
 idleSprite = idleList[0]
-runningSprite = runningList[0]
+runningSprite = runningList[0] #Used only to calculate width of ninja on instantiation
 slideSprite = pygame.transform.rotate(idleSprite,90)
 kunaiRight = image.load((os.path.join('Shinobi Dash Files','kunai.png')))
 kunaiLeft = pygame.transform.flip(kunaiRight,True,False)
@@ -62,7 +62,7 @@ class Sprite(pygame.sprite.Sprite):
     def __init__(self,imageFilePrefix = 0, x = 0,y =0):
         self.x = x
         self.y = y
-        self.spriteList = [image.load(os.path.join('Shinobi Dash Files', imageFilePrefix +str(x) + '.png')) for x in [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8]*2]
+        self.spriteList = [image.load(os.path.join('Shinobi Dash Files','Player Sprites', imageFilePrefix +str(x) + '.png')) for x in [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8]*2]
         self.rect=self.spriteList[0].get_bounding_rect()
         self.rect.x=x
         self.rect.y=y
