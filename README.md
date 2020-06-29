@@ -14,3 +14,7 @@ S = Slide
 Space = Shoot Kunai
 (Hold) Left Shift = Block projectiles
 
+#
+Player sprite made by https://github.com/bengsfort
+Kunai Icon made by Pixel perfect from www.flaticon.com 
+
