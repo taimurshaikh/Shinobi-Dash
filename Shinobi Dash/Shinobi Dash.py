@@ -1,4 +1,4 @@
-#TAIMUR SHAIKH
+ #TAIMUR SHAIKH
 #SHINOBI DASH
 
 '''
@@ -33,7 +33,7 @@ SHOW_HITBOX = 0
 MUSIC = 1
 
 gameFont = pygame.font.Font(os.path.join("Shinobi Dash Files", "Font.ttf") , 25)
-
+titleFont = pygame.font.Font(os.path.join("Shinobi Dash Files", "Font.ttf") , 50)
 
 screen = pygame.display.set_mode((WINDOW_WIDTH,WINDOW_HEIGHT))
 
@@ -200,9 +200,13 @@ def GameOver():
 def mainMenu():
     while True:
         screen.fill(BLUE)
+        nameText = titleFont.render("SHINOBI DASH",True,BLACK)
+        nameTextRect = nameText.get_rect(center = (WINDOW_WIDTH//2,WINDOW_HEIGHT//2))
+    #    pygame.draw.rect(screen,WHITE,(startTextRect.x-5,startTextRect.y,startTextRect.w +10,startTextRect.h))
+        screen.blit(nameText,nameTextRect)
 
         startText = gameFont.render("START",True,RED)
-        startTextRect = startText.get_rect(center = (WINDOW_WIDTH//2,WINDOW_HEIGHT//2))
+        startTextRect = startText.get_rect(center = (WINDOW_WIDTH//2,WINDOW_HEIGHT//1.25))
         pygame.draw.rect(screen,WHITE,(startTextRect.x-5,startTextRect.y,startTextRect.w +10,startTextRect.h))
         screen.blit(startText,startTextRect)
 
@@ -251,9 +255,9 @@ def displayUpdate():
     screen.fill(BLUE)
 
     for projectile in playerProjectiles:
-         projectile.draw(screen,'RIGHT',0,0)
-         if SHOW_HITBOX:
-         pygame.draw.rect(screen,RED,projectile.hitbox,2)
+            projectile.draw(screen,'RIGHT',0,0)
+            if SHOW_HITBOX:
+                pygame.draw.rect(screen,RED,projectile.hitbox,2)
 
     for projectile in enemyProjectiles:
 
